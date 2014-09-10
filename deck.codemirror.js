@@ -222,10 +222,10 @@
   };
 
   $d.bind('deck.init', function() {
-    //codemirrorify all the decks so that scale is correctly computed
-    var slides = $[deck]('getSlides');
-    $(slides).each(function(i){
-        codemirrorify($.deck('getSlide', i));
+    $(".deck-container>.slide").bind('deck.becameCurrent', function(_, direction) {
+      setTimeout(function() {
+        codemirrorify(_.target);
+      }, 0);
     });
   });
 })(jQuery, 'deck', this);
