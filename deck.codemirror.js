@@ -222,9 +222,9 @@
   };
 
   $d.bind('deck.init', function() {
-    $(".deck-container>.slide").bind('deck.becameCurrent', function(_, direction) {
+    $(".deck-container .slide").bind('deck.becameCurrent', function(_, direction) {
       setTimeout(function() {
-        codemirrorify(_.target);
+          codemirrorify($(_.target).parentsUntil(".deck-container").andSelf().filter(".slide:first"));
       }, 0);
     });
   });
